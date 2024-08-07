@@ -11,21 +11,24 @@ import java.util.stream.Stream;
 
 public class ReadLines
 {
-    public static void main(String[] args) {
-        List<String >list=new ArrayList<>();
+    public static void main(String[] args) throws IOException {
+
 
         Path path= Paths.get("src/level1/Test.txt");
-        try(Stream<String> stream=Files.lines(path))
+        try
         {
-            stream.forEach(System.out::println);
+            List<String>list=Files.lines(path).collect(Collectors.toList());
+            System.out.println(list);
+        }catch (IOException e){}
+
+//        List<String >list=new ArrayList<>();
+//        try(Stream<String> stream=Files.lines(path))
+//        {
+//            stream.forEach(System.out::println);
 //            list=stream.toList();
 //            System.out.println(list);
-        }catch (IOException e)
-        {
-
-        }
-
-
+//        }catch (IOException e)
+//        {}
 
     }
 }
